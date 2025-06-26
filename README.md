@@ -1,52 +1,77 @@
-
 # Shoepik – Premium Footwear E-commerce 👟
 
 A modern, responsive e-commerce platform specializing in premium footwear for men, women, and children.
 
-## 🚀 Live Demo
-[View Live Demo](https://vandan2931.github.io/Shoepik/) 
+## 🚀 Live Demo  
+[View Live Demo](https://vandan2931.github.io/Shoepik/)
 
-## ✨ Features
-- **Responsive Design**: Mobile-first approach
-- **Product Showcase**: Cards with pricing and badges
-- **Shopping Tools**: Wishlist, cart, and search
-- **Marketing Elements**: Countdown timer, featured sections
-- **UI Components**: Built with Bootstrap 5 + custom CSS
+## ✨ Key Features
+
+### 🛍️ Shopping Experience
+- **Responsive Product Grids** - Adapts to all screen sizes
+- **Interactive Product Cards** - With pricing, badges, and hover effects
+- **Advanced Filtering** - By category, price, and popularity
+
+### 🛠️ Functionality
+- **Wishlist System** - Save favorite items
+- **Shopping Cart** - Persistent cart functionality
+- **Search Feature** - Find products instantly
+
+### 🎛️ UI Components
+- **Countdown Timer** - For special offers
+- **Featured Sections** - Highlight promotions
+- **Testimonials** - Customer reviews section
 
 ## 🛠️ Tech Stack
-- **Frontend**: HTML5, CSS3, JavaScript
-- **Frameworks**: Bootstrap 5
-- **Icons**: Font Awesome
-- **Fonts**: Google Fonts
+
+| Technology | Purpose |
+|------------|---------|
+| **HTML5** | Semantic markup |
+| **CSS3** | Custom styling & animations |
+| **Bootstrap 5** | Responsive framework |
+| **JavaScript** | Interactive elements |
+| **Font Awesome** | Icon system |
+| **Google Fonts** | Typography |
 
 ## 📂 Project Structure
 ```
-shoepik/
-├── index.html
+Shoepik/
+├── index.html          # Main entry point
 ├── assets/
-│   ├── css/
-│   ├── js/
-│   └── images/
-└── README.md
+│   ├── css/            # Stylesheets
+│   │   ├── style.css   # Custom CSS
+│   ├── js/             # JavaScript
+│   │   └── script.js     # Core functionality
+│   └── images/         # Product images & assets
+├── README.md           # This documentation
+└── LICENSE             # MIT License file
 ```
 
-## 🛠️ Setup
-1. Clone repo:
+## 🚀 Quick Start
+
+1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/shoepik.git
+git clone https://github.com/vandan2931/Shoepik.git
 ```
-2. Open `index.html` in browser
+2. Open `index.html` in your browser
 
-## 🌐 Deployment
-Ready for:
-- GitHub Pages
+## 🌍 Deployment Options
+- GitHub Pages (already configured)
 - Netlify
 - Vercel
+- Any static hosting service
+
+## 📝 Notes
+- Frontend-only implementation
+- Uses browser localStorage for cart/wishlist
+- Product data is hardcoded for demo purposes
+- Designed as a portfolio piece
 
 ## 📜 License
-MIT License - See [LICENSE](LICENSE)
+MIT Licensed - See [LICENSE](LICENSE) for details.
 
 ---
 
-👟 **Created by** [VANDAN SHAH](https://github.com/vandan2931)
+👟 **Developed by** [VANDAN SHAH](https://github.com/vandan2931)  
+💡 **Design Inspired by** modern e-commerce trends
 ```
