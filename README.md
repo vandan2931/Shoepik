@@ -1,25 +1,52 @@
-# Shoepik – Premium Footwear E-commerce Website 👟
 
-**Shoepik** is a modern, responsive, and stylish e-commerce website dedicated to showcasing premium footwear collections for Men, Women, and Kids.
+# Shoepik – Premium Footwear E-commerce 👟
 
-## 🚀 Features
+A modern, responsive e-commerce platform specializing in premium footwear for men, women, and children.
 
-- 💼 Professionally designed UI with Bootstrap 5 & custom CSS
-- 🛒 Shopping categories with discount tags and user ratings
-- 🎯 Hero section with call-to-action buttons
-- 🧩 Dynamic sale countdown banner
-- 📦 Product cards with pricing, badges, and hover effects
-- 🆕 New Arrivals and Featured Product sections
-- 🔍 Search bar, user icon, wishlist, and cart integration
-- 📚 Blog & testimonial sections
-- 📧 Newsletter subscription form
-- 📱 Fully responsive design
-- 🌐 Integrated with FontAwesome and Google Fonts
+## 🚀 Live Demo
+[View Live Demo](https://vandan2931.github.io/Shoepik/) 
 
-## 🛠️ Built With
+## ✨ Features
+- **Responsive Design**: Mobile-first approach
+- **Product Showcase**: Cards with pricing and badges
+- **Shopping Tools**: Wishlist, cart, and search
+- **Marketing Elements**: Countdown timer, featured sections
+- **UI Components**: Built with Bootstrap 5 + custom CSS
 
-- HTML5
-- CSS3 (Custom + Bootstrap 5)
-- JavaScript (Vanilla)
-- Font Awesome Icons
-- Google Fonts
+## 🛠️ Tech Stack
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Frameworks**: Bootstrap 5
+- **Icons**: Font Awesome
+- **Fonts**: Google Fonts
+
+## 📂 Project Structure
+```
+shoepik/
+├── index.html
+├── assets/
+│   ├── css/
+│   ├── js/
+│   └── images/
+└── README.md
+```
+
+## 🛠️ Setup
+1. Clone repo:
+```bash
+git clone https://github.com/yourusername/shoepik.git
+```
+2. Open `index.html` in browser
+
+## 🌐 Deployment
+Ready for:
+- GitHub Pages
+- Netlify
+- Vercel
+
+## 📜 License
+MIT License - See [LICENSE](LICENSE)
+
+---
+
+👟 **Created by** [VANDAN SHAH](https://github.com/vandan2931)
+```
