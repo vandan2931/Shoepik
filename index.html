@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Footwear Collection | Shoepik</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Shoepik</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item dropdown mega-dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="menDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            Men
+                        </a>
+                        <div class="dropdown-menu mega-menu">
+                            <div class="row g-4">
+                                <div class="col-md-3">
+                                    <h6>Categories</h6>
+                                    <ul>
+                                        <li><a class="dropdown-item" href="#">Running Shoes</a></li>
+                                        <li><a class="dropdown-item" href="#">Casual Shoes</a></li>
+                                        <li><a class="dropdown-item" href="#">Formal Shoes</a></li>
+                                        <li><a class="dropdown-item" href="#">Sneakers</a></li>
+                                        <li><a class="dropdown-item" href="#">Sandals</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-3">
+                                    <h6>Featured</h6>
+                                    <div class="mega-product">
+                                        <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28"
+                                            alt="Featured Product" class="img-fluid">
+                                        <h5>Air Max 270</h5>
+                                        <p class="price">$129.99</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <h6>New Arrivals</h6>
+                                    <div class="mega-product">
+                                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff"
+                                            alt="New Arrival" class="img-fluid">
+                                        <h5>Ultra Boost</h5>
+                                        <p class="price">$159.99</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <h6>Sale</h6>
+                                    <div class="mega-product">
+                                        <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519"
+                                            alt="Sale Item" class="img-fluid">
+                                        <h5>Classic Reebok</h5>
+                                        <p class="price"><span class="old-price">$89.99</span> $59.99</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown mega-dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="womenDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            Women
+                        </a>
+                        <div class="dropdown-menu mega-menu">
+                            <!-- Similar structure as men's dropdown -->
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sale">Sale</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#new-arrivals">New Arrivals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Reviews</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <div class="input-group me-3 d-none d-lg-flex">
+                        <input type="text" class="form-control" placeholder="Search products..." id="searchInput">
+                        <button class="btn btn-outline-secondary" type="button" id="searchBtn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="d-flex">
+                        <div class="dropdown me-2">
+                            <a href="#" class="btn btn-outline-dark btn-icon position-relative" id="wishlistDropdown"
+                                data-bs-toggle="dropdown">
+                                <i class="far fa-heart"></i>
+                                <span
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                    id="wishlistCount">0</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end p-3 wishlist-dropdown">
+                                <h6 class="dropdown-header">Your Wishlist</h6>
+                                <div class="wishlist-items">
+                                    <!-- Will be populated by JavaScript -->
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item text-center">View All</a>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-outline-dark btn-icon me-2" id="userIcon" data-bs-toggle="modal"
+                            data-bs-target="#loginModal">
+                            <i class="far fa-user"></i>
+                        </a>
+                        <div class="dropdown">
+                            <a href="#" class="btn btn-outline-dark btn-icon position-relative" id="cartDropdown"
+                                data-bs-toggle="dropdown">
+                                <i class="fas fa-shopping-bag"></i>
+                                <span
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                    id="cartCount">0</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end p-3 cart-dropdown">
+                                <h6 class="dropdown-header">Your Cart</h6>
+                                <div class="cart-items">
+                                    <!-- Will be populated by JavaScript -->
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>Subtotal:</span>
+                                    <span class="fw-bold" id="cartSubtotal">$0.00</span>
+                                </div>
+                                <a href="cart.html" class="btn btn-primary w-100 mb-2">Checkout</a>
+                                <a href="cart.html" class="btn btn-outline-secondary w-100">View Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="hero-slider">
+            <div class="hero-slide active"
+                style="background-image: url('https://images.unsplash.com/photo-1460353581641-37baddab0fa2')">
+                <div class="container">
+                    <div class="hero-content animate__animated animate__fadeInUp">
+                        <h1 class="display-4 fw-bold mb-4">Step Into Excellence</h1>
+                        <p class="lead mb-5">Discover our premium collection of handcrafted footwear designed for
+                            comfort, style, and durability.</p>
+                        <div class="d-flex flex-wrap gap-3">
+                            <a href="#featured" class="btn btn-primary btn-lg px-4 pulse">Shop Collection</a>
+                            <a href="#new-arrivals" class="btn btn-outline-light btn-lg px-4">Explore New Arrivals</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-slide"
+                style="background-image: url('https://images.unsplash.com/photo-1491553895911-0055eca6402d')">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1 class="display-4 fw-bold mb-4">Summer Collection</h1>
+                        <p class="lead mb-5">Lightweight and breathable designs perfect for warm weather adventures.</p>
+                        <div class="d-flex flex-wrap gap-3">
+                            <a href="#sale" class="btn btn-primary btn-lg px-4 pulse">Shop Summer Styles</a>
+                            <a href="#" class="btn btn-outline-light btn-lg px-4">View Lookbook</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-slider-controls">
+            <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="hero-slider-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5 bg-light" id="features">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3 col-sm-6">
+                    <div class="feature-box animate__animated animate__fadeIn" data-animation="fadeIn"
+                        data-animation-delay="0.1s">
+                        <div class="feature-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h5>Free Shipping</h5>
+                        <p class="mb-0">On all orders over $99</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="feature-box animate__animated animate__fadeIn" data-animation="fadeIn"
+                        data-animation-delay="0.2s">
+                        <div class="feature-icon">
+                            <i class="fas fa-undo"></i>
+                        </div>
+                        <h5>Easy Returns</h5>
+                        <p class="mb-0">30-day return policy</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="feature-box animate__animated animate__fadeIn" data-animation="fadeIn"
+                        data-animation-delay="0.3s">
+                        <div class="feature-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h5>Secure Payment</h5>
+                        <p class="mb-0">100% secure checkout</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="feature-box animate__animated animate__fadeIn" data-animation="fadeIn"
+                        data-animation-delay="0.4s">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h5>24/7 Support</h5>
+                        <p class="mb-0">Dedicated support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="py-5" id="categories">
+        <div class="container">
+            <h2 class="section-title">Shop By Category</h2>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card animate__animated animate__fadeInLeft">
+                        <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28" alt="Men's Shoes">
+                        <div class="category-overlay">
+                            <h3 class="text-white">Men's Collection</h3>
+                            <a href="#" class="btn btn-sm btn-outline-light">Explore Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card animate__animated animate__fadeInUp">
+                        <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2" alt="Women's Shoes">
+                        <div class="category-overlay">
+                            <h3 class="text-white">Women's Collection</h3>
+                            <a href="#" class="btn btn-sm btn-outline-light">Explore Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card animate__animated animate__fadeInRight">
+                        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a" alt="Kids' Shoes">
+                        <div class="category-overlay">
+                            <h3 class="text-white">Kids' Collection</h3>
+                            <a href="#" class="btn btn-sm btn-outline-light">Explore Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="py-5 bg-light" id="featured">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-5">
+                <h2 class="section-title mb-0">Featured Products</h2>
+                <a href="#" class="btn btn-outline-primary">View All Products</a>
+            </div>
+            <div class="row g-4">
+                <!-- Product cards will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Sale Banner -->
+    <section class="sale-banner" id="sale">
+        <div class="container text-center position-relative">
+            <h2 class="display-5 fw-bold mb-3 animate__animated animate__pulse animate__infinite">End of Season Sale
+            </h2>
+            <p class="lead mb-4">Up to 50% off selected styles. Limited time only!</p>
+            <div class="countdown-timer d-flex justify-content-center gap-3 mb-4">
+                <div class="countdown-item bg-white text-dark rounded p-2">
+                    <div class="countdown-value fw-bold">12</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item bg-white text-dark rounded p-2">
+                    <div class="countdown-value fw-bold">23</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item bg-white text-dark rounded p-2">
+                    <div class="countdown-value fw-bold">45</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item bg-white text-dark rounded p-2">
+                    <div class="countdown-value fw-bold">30</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+            <a href="#" class="btn btn-light btn-lg px-4 pulse">Shop the Sale</a>
+        </div>
+    </section>
+
+    <!-- New Arrivals -->
+    <section class="py-5" id="new-arrivals">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-5">
+                <h2 class="section-title mb-0">New Arrivals</h2>
+                <a href="#" class="btn btn-outline-primary">View All New Arrivals</a>
+            </div>
+            <div class="row g-4">
+                <!-- Product cards will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="py-5 bg-light" id="brands">
+        <div class="container">
+            <h2 class="section-title mb-5">Our Trusted Brands</h2>
+            <div class="row g-4 align-items-center justify-content-center">
+                <div class="col-6 col-md-4 col-lg-2 text-center">
+                    <img src="https://logos-world.net/wp-content/uploads/2020/04/Nike-Logo.png" alt="Nike"
+                        class="img-fluid brand-logo">
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 text-center">
+                    <img src="https://logos-world.net/wp-content/uploads/2020/04/Adidas-Logo.png" alt="Adidas"
+                        class="img-fluid brand-logo">
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 text-center">
+                    <img src="https://logos-world.net/wp-content/uploads/2020/04/Puma-Logo.png" alt="Puma"
+                        class="img-fluid brand-logo">
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 text-center">
+                    <img src="assets/logo4.png" alt="New Balance" class="img-fluid brand-logo">
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 text-center">
+                    <img src="https://logos-world.net/wp-content/uploads/2020/04/Reebok-Logo.png" alt="Reebok"
+                        class="img-fluid brand-logo">
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 text-center">
+                    <img src="assets/logo6.jpg" alt="Skechers" class="img-fluid brand-logo" style="max-height: 50px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-5" id="testimonials">
+        <div class="container">
+            <h2 class="section-title mb-5">What Our Customers Say</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial-slide">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="testimonial-card">
+                                <div class="text-center mb-4">
+                                    <img src="https://randomuser.me/api/portraits/women/32.jpg" class="testimonial-img"
+                                        alt="Customer" loading="lazy">
+                                </div>
+                                <div class="rating text-center mb-3">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="text-center mb-4">"The most comfortable running shoes I've ever worn. The
+                                    cushioning is incredible and they look fantastic. Worth every penny!"</p>
+                                <h5 class="text-center mb-1">Sarah Johnson</h5>
+                                <p class="text-muted text-center">Professional Runner</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="testimonial-card">
+                                <div class="text-center mb-4">
+                                    <img src="https://randomuser.me/api/portraits/men/75.jpg" class="testimonial-img"
+                                        alt="Customer" loading="lazy">
+                                </div>
+                                <div class="rating text-center mb-3">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <p class="text-center mb-4">"Great selection and fast shipping. The customer service is
+                                    exceptional. My new go-to for all my footwear needs."</p>
+                                <h5 class="text-center mb-1">Michael Chen</h5>
+                                <p class="text-muted text-center">Frequent Buyer</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="testimonial-card">
+                                <div class="text-center mb-4">
+                                    <img src="https://randomuser.me/api/portraits/women/68.jpg" class="testimonial-img"
+                                        alt="Customer" loading="lazy">
+                                </div>
+                                <div class="rating text-center mb-3">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <p class="text-center mb-4">"The formal shoes I bought are perfect for my office.
+                                    Stylish and comfortable enough to wear all day. Will definitely buy again."</p>
+                                <h5 class="text-center mb-1">Emma Rodriguez</h5>
+                                <p class="text-muted text-center">Corporate Executive</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Additional testimonial slides would go here -->
+            </div>
+            <div class="text-center mt-4">
+                <button class="btn btn-outline-primary testimonial-prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="btn btn-outline-primary testimonial-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="py-5 bg-light" id="blog">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-5">
+                <h2 class="section-title mb-0">Latest From Our Blog</h2>
+                <a href="#" class="btn btn-outline-primary">View All Articles</a>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card animate__animated animate__fadeInUp">
+                        <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d" class="card-img-top"
+                            alt="Blog Post" loading="lazy">
+                        <div class="card-body">
+                            <span class="badge bg-primary mb-2">Running</span>
+                            <h5 class="card-title">How to Choose the Perfect Running Shoes</h5>
+                            <p class="card-text text-muted">Learn what to look for in running shoes based on your foot
+                                type and running style.</p>
+                            <a href="#" class="btn btn-link ps-0">Read More <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0">
+                            <small class="text-muted">Published: May 15, 2023</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card animate__animated animate__fadeInUp" data-animation-delay="0.1s">
+                        <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2" class="card-img-top"
+                            alt="Blog Post" loading="lazy">
+                        <div class="card-body">
+                            <span class="badge bg-success mb-2">Sustainability</span>
+                            <h5 class="card-title">Eco-Friendly Footwear: The Future of Shoes</h5>
+                            <p class="card-text text-muted">Discover how sustainable materials are revolutionizing the
+                                footwear industry.</p>
+                            <a href="#" class="btn btn-link ps-0">Read More <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0">
+                            <small class="text-muted">Published: April 28, 2023</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card animate__animated animate__fadeInUp" data-animation-delay="0.2s">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" class="card-img-top"
+                            alt="Blog Post" loading="lazy">
+                        <div class="card-body">
+                            <span class="badge bg-warning text-dark mb-2">Fashion</span>
+                            <h5 class="card-title">Spring 2023 Footwear Trends You Need to Know</h5>
+                            <p class="card-text text-muted">The hottest shoe styles and colors to complete your spring
+                                wardrobe.</p>
+                            <a href="#" class="btn btn-link ps-0">Read More <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                        <div class="card-footer bg-transparent border-top-0">
+                            <small class="text-muted">Published: March 10, 2023</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section" id="newsletter">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-4 animate__animated animate__fadeIn">Join Our Community</h2>
+                    <p class="mb-5 animate__animated animate__fadeIn" data-animation-delay="0.1s">Subscribe to our
+                        newsletter for exclusive offers, new arrivals, style tips, and 10% off your first order.</p>
+                    <form class="newsletter-form row g-2 justify-content-center animate__animated animate__fadeIn"
+                        data-animation-delay="0.2s">
+                        <div class="col-md-8">
+                            <input type="email" class="form-control" placeholder="Your email address" required>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-primary w-100">Subscribe</button>
+                        </div>
+                        <div class="col-12">
+                            <small class="text-muted">We respect your privacy. Unsubscribe at any time.</small>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-uppercase mb-4">Shoepik</h5>
+                    <p>Premium footwear for every step of your journey. We combine quality craftsmanship with innovative
+                        design to deliver shoes that look as good as they feel.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h5>Shop</h5>
+                        <ul>
+                            <li><a href="#">Men's Shoes</a></li>
+                            <li><a href="#">Women's Shoes</a></li>
+                            <li><a href="#">Kids' Shoes</a></li>
+                            <li><a href="#">New Arrivals</a></li>
+                            <li><a href="#">Best Sellers</a></li>
+                            <li><a href="#">Sale</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h5>Help</h5>
+                        <ul>
+                            <li><a href="#">Customer Service</a></li>
+                            <li><a href="#">Track Order</a></li>
+                            <li><a href="#">Returns & Exchanges</a></li>
+                            <li><a href="#">Shipping Info</a></li>
+                            <li><a href="#">Size Guide</a></li>
+                            <li><a href="#">FAQs</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h5>Company</h5>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Our Story</a></li>
+                            <li><a href="#">Sustainability</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h5>Legal</h5>
+                        <ul>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                            <li><a href="#">Accessibility</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2025 Shoepik. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="payment-methods">
+                        <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Visa" loading="lazy">
+                        <img src="https://cdn-icons-png.flaticon.com/512/196/196561.png" alt="Mastercard"
+                            loading="lazy">
+                        <img src="https://cdn-icons-png.flaticon.com/512/196/196566.png" alt="American Express"
+                            loading="lazy">
+                        <img src="https://cdn-icons-png.flaticon.com/512/825/825454.png" alt="PayPal" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Login to Your Account</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="loginEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Remember me</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                    </form>
+                    <div class="text-center mt-3">
+                        <p>Don't have an account? <a href="#" class="text-primary" data-bs-toggle="modal"
+                                data-bs-target="#signupModal" data-bs-dismiss="modal">Sign up</a></p>
+                        <p><a href="#" class="text-primary">Forgot password?</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create Your Account</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="signupForm">
+                        <div class="mb-3">
+                            <label for="signupName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="signupName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="signupEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="signupPassword" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupConfirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="signupConfirmPassword" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="agreeTerms" required>
+                            <label class="form-check-label" for="agreeTerms">I agree to the <a href="#">Terms of
+                                    Service</a> and <a href="#">Privacy Policy</a></label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Create Account</button>
+                    </form>
+                    <div class="text-center mt-3">
+                        <p>Already have an account? <a href="#" class="text-primary" data-bs-toggle="modal"
+                                data-bs-target="#loginModal" data-bs-dismiss="modal">Login</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div class="modal fade" id="quickViewModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="quickViewTitle">Product Quick View</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="product-gallery">
+                                <div class="main-image mb-3">
+                                    <img src="" alt="Product" class="img-fluid" id="quickViewMainImage">
+                                </div>
+                                <div class="thumbnail-images d-flex gap-2">
+                                    <!-- Thumbnails will be added by JavaScript -->
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="product-details">
+                                    <h3 id="quickViewProductName">Product Name</h3>
+                                    <div class="rating mb-3" id="quickViewRating">
+                                        <!-- Stars will be added by JavaScript -->
+                                    </div>
+                                    <div class="price mb-3">
+                                        <span class="current-price" id="quickViewPrice">$0.00</span>
+                                        <span class="old-price" id="quickViewOldPrice"></span>
+                                        <span class="badge badge-discount" id="quickViewDiscount"></span>
+                                    </div>
+                                    <p class="text-muted mb-4" id="quickViewDescription">Product description will appear
+                                        here.</p>
+
+                                    <div class="size-selector mb-4">
+                                        <label class="form-label">Size</label>
+                                        <div class="d-flex flex-wrap gap-2" id="sizeOptions">
+                                            <!-- Size options will be added by JavaScript -->
+                                        </div>
+                                    </div>
+
+                                    <div class="color-selector mb-4">
+                                        <label class="form-label">Color</label>
+                                        <div class="d-flex flex-wrap gap-2" id="colorOptions">
+                                            <!-- Color options will be added by JavaScript -->
+                                        </div>
+                                    </div>
+
+                                    <div class="quantity-selector mb-4">
+                                        <label class="form-label">Quantity</label>
+                                        <div class="input-group" style="max-width: 150px;">
+                                            <button class="btn btn-outline-secondary" type="button"
+                                                id="decrementQty">-</button>
+                                            <input type="number" class="form-control text-center" value="1" min="1"
+                                                id="productQty">
+                                            <button class="btn btn-outline-secondary" type="button"
+                                                id="incrementQty">+</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex gap-3">
+                                        <button class="btn btn-primary flex-grow-1" id="addToCartQuickView">Add to
+                                            Cart</button>
+                                        <button class="btn btn-outline-secondary" id="addToWishlistQuickView"><i
+                                                class="far fa-heart"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- jQuery-->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/script.js"></script>
+</body>
+
+</html>

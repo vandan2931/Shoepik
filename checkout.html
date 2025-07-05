@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Shoepik</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Checkout CSS -->
+    <link rel="stylesheet" href="css/checkout.css">
+</head>
+
+<body>
+    <!-- Navigation (Same as cart.html) -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Shoepik</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#featured">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Collections</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <div class="dropdown me-2">
+                        <a href="#" class="btn btn-outline-dark btn-icon position-relative" id="wishlistDropdown"
+                            data-bs-toggle="dropdown">
+                            <i class="far fa-heart"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                id="wishlistCount">0</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end p-3 wishlist-dropdown">
+                            <h6 class="dropdown-header">Your Wishlist</h6>
+                            <div class="wishlist-items">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item text-center">View All</a>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-outline-dark btn-icon me-2" id="userIcon" data-bs-toggle="modal"
+                        data-bs-target="#loginModal">
+                        <i class="far fa-user"></i>
+                    </a>
+                    <div class="dropdown">
+                        <a href="#" class="btn btn-outline-dark btn-icon position-relative" id="cartDropdown"
+                            data-bs-toggle="dropdown">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                id="cartCount">0</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end p-3 cart-dropdown">
+                            <h6 class="dropdown-header">Your Cart</h6>
+                            <div class="cart-items">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Subtotal:</span>
+                                <span class="fw-bold" id="cartSubtotal">$0.00</span>
+                            </div>
+                            <a href="cart.html" class="btn btn-primary w-100 mb-2">View Cart</a>
+                            <a href="checkout.html" class="btn btn-outline-secondary w-100">Checkout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Checkout Main Content -->
+    <main class="checkout-page py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card mb-4">
+                        <div class="card-header bg-white">
+                            <h2 class="mb-0">Checkout</h2>
+                        </div>
+                        <div class="card-body">
+                            <!-- Checkout Steps -->
+                            <ul class="nav nav-pills mb-4" id="checkoutSteps">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="shipping-tab" data-bs-toggle="pill" href="#shipping">Shipping</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="payment-tab" data-bs-toggle="pill" href="#payment">Payment</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="review-tab" data-bs-toggle="pill" href="#review">Review</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" id="checkoutTabContent">
+                                <!-- Shipping Information -->
+                                <div class="tab-pane fade show active" id="shipping">
+                                    <form id="shippingForm">
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="firstName" class="form-label">First Name</label>
+                                                <input type="text" class="form-control" id="firstName" required>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="lastName" class="form-label">Last Name</label>
+                                                <input type="text" class="form-control" id="lastName" required>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">Email Address</label>
+                                            <input type="email" class="form-control" id="email" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="phone" class="form-label">Phone Number</label>
+                                            <input type="tel" class="form-control" id="phone" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="address" class="form-label">Street Address</label>
+                                            <input type="text" class="form-control" id="address" required>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="city" class="form-label">City</label>
+                                                <input type="text" class="form-control" id="city" required>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="state" class="form-label">State/Province</label>
+                                                <input type="text" class="form-control" id="state" required>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="zip" class="form-label">ZIP/Postal Code</label>
+                                                <input type="text" class="form-control" id="zip" required>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="country" class="form-label">Country</label>
+                                                <select class="form-select" id="country" required>
+                                                    <option value="">Select Country</option>
+                                                    <option value="US">United States</option>
+                                                    <option value="CA">Canada</option>
+                                                    <option value="UK">United Kingdom</option>
+                                                    <!-- Add more countries as needed -->
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-check mb-4">
+                                            <input class="form-check-input" type="checkbox" id="saveAddress">
+                                            <label class="form-check-label" for="saveAddress">Save this address for future use</label>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <a href="cart.html" class="btn btn-outline-secondary">Back to Cart</a>
+                                            <button type="button" class="btn btn-primary" id="continueToPayment">Continue to Payment</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!-- Payment Information -->
+                                <div class="tab-pane fade" id="payment">
+                                    <form id="paymentForm">
+                                        <div class="mb-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="paymentMethod" id="creditCard" checked>
+                                                <label class="form-check-label" for="creditCard">
+                                                    Credit/Debit Card
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="paymentMethod" id="paypal">
+                                                <label class="form-check-label" for="paypal">
+                                                    PayPal
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div id="creditCardForm">
+                                            <div class="mb-3">
+                                                <label for="cardNumber" class="form-label">Card Number</label>
+                                                <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456">
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="cardName" class="form-label">Name on Card</label>
+                                                    <input type="text" class="form-control" id="cardName">
+                                                </div>
+                                                <div class="col-md-3 mb-3">
+                                                    <label for="cardExpiry" class="form-label">Expiry Date</label>
+                                                    <input type="text" class="form-control" id="cardExpiry" placeholder="MM/YY">
+                                                </div>
+                                                <div class="col-md-3 mb-3">
+                                                    <label for="cardCvv" class="form-label">CVV</label>
+                                                    <input type="text" class="form-control" id="cardCvv" placeholder="123">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="paypalForm" style="display: none;">
+                                            <div class="alert alert-info">
+                                                You will be redirected to PayPal to complete your payment.
+                                            </div>
+                                        </div>
+
+                                        <div class="form-check mb-4">
+                                            <input class="form-check-input" type="checkbox" id="savePayment">
+                                            <label class="form-check-label" for="savePayment">Save this payment method for future use</label>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <button type="button" class="btn btn-outline-secondary" id="backToShipping">Back to Shipping</button>
+                                            <button type="button" class="btn btn-primary" id="continueToReview">Continue to Review</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!-- Order Review -->
+                                <div class="tab-pane fade" id="review">
+                                    <div class="mb-4">
+                                        <h5>Shipping Information</h5>
+                                        <div id="shippingReview"></div>
+                                        <button type="button" class="btn btn-sm btn-outline-primary mt-2" id="editShipping">Edit</button>
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <h5>Payment Method</h5>
+                                        <div id="paymentReview"></div>
+                                        <button type="button" class="btn btn-sm btn-outline-primary mt-2" id="editPayment">Edit</button>
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <h5>Order Summary</h5>
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Product</th>
+                                                        <th>Price</th>
+                                                        <th>Qty</th>
+                                                        <th>Total</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="orderItems">
+                                                    <!-- Will be populated by JavaScript -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex justify-content-between">
+                                        <button type="button" class="btn btn-outline-secondary" id="backToPayment">Back to Payment</button>
+                                        <button type="button" class="btn btn-success" id="placeOrder">Place Order</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card order-summary">
+                        <div class="card-header bg-white">
+                            <h3 class="mb-0">Order Summary</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive mb-3">
+                                <table class="table">
+                                    <tbody id="checkoutItems">
+                                        <!-- Will be populated by JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="mb-3">
+                                <label for="promoCode" class="form-label">Promo Code</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="promoCode" placeholder="Enter code">
+                                    <button class="btn btn-outline-secondary" type="button" id="applyPromo">Apply</button>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Subtotal:</span>
+                                <span id="checkoutSubtotal">$0.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Shipping:</span>
+                                <span id="checkoutShipping">$0.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Tax:</span>
+                                <span id="checkoutTax">$0.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Discount:</span>
+                                <span id="checkoutDiscount">$0.00</span>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between mb-4">
+                                <h4>Total:</h4>
+                                <h4 id="checkoutTotal">$0.00</h4>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                                <label class="form-check-label" for="agreeTerms">
+                                    I agree to the <a href="#">Terms and Conditions</a>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (Same as cart.html) -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-uppercase mb-4">Shoepik</h5>
+                    <p>Premium footwear for every step of your journey. We combine quality craftsmanship with innovative
+                        design to deliver shoes that look as good as they feel.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h5>Shop</h5>
+                        <ul>
+                            <li><a href="#">Men's Shoes</a></li>
+                            <li><a href="#">Women's Shoes</a></li>
+                            <li><a href="#">Kids' Shoes</a></li>
+                            <li><a href="#">New Arrivals</a></li>
+                            <li><a href="#">Best Sellers</a></li>
+                            <li><a href="#">Sale</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h5>Help</h5>
+                        <ul>
+                            <li><a href="#">Customer Service</a></li>
+                            <li><a href="#">Track Order</a></li>
+                            <li><a href="#">Returns & Exchanges</a></li>
+                            <li><a href="#">Shipping Info</a></li>
+                            <li><a href="#">Size Guide</a></li>
+                            <li><a href="#">FAQs</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h5>Company</h5>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Our Story</a></li>
+                            <li><a href="#">Sustainability</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h5>Legal</h5>
+                        <ul>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                            <li><a href="#">Accessibility</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2025 Shoepik. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="payment-methods">
+                        <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Visa">
+                        <img src="https://cdn-icons-png.flaticon.com/512/196/196561.png" alt="Mastercard">
+                        <img src="https://cdn-icons-png.flaticon.com/512/196/196566.png" alt="American Express">
+                        <img src="https://cdn-icons-png.flaticon.com/512/825/825454.png" alt="PayPal">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Order Confirmation Modal -->
+    <div class="modal fade" id="orderConfirmationModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center p-5">
+                    <div class="mb-4">
+                        <i class="fas fa-check-circle text-success fa-5x"></i>
+                    </div>
+                    <h3 class="mb-3">Order Confirmed!</h3>
+                    <p class="mb-4">Thank you for your purchase. Your order has been placed successfully.</p>
+                    <p class="text-muted mb-4">Order #: <span id="orderNumber"></span></p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="index.html" class="btn btn-primary">Continue Shopping</a>
+                        <a href="#" class="btn btn-outline-secondary">View Order</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Main JS -->
+    <script src="js/script.js"></script>
+    <!-- Cart JS -->
+    <script src="js/cart.js"></script>
+    <!-- Checkout JS -->
+    <script src="js/checkout.js"></script>
+</body>
+
+</html>

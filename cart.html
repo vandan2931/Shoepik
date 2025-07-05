@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart | Shoepik</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Cart CSS -->
+    <link rel="stylesheet" href="css/cart.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Shoepik</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#featured">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Collections</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <div class="dropdown me-2">
+                        <a href="#" class="btn btn-outline-dark btn-icon position-relative" id="wishlistDropdown"
+                            data-bs-toggle="dropdown">
+                            <i class="far fa-heart"></i>
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                id="wishlistCount">0</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end p-3 wishlist-dropdown">
+                            <h6 class="dropdown-header">Your Wishlist</h6>
+                            <div class="wishlist-items">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item text-center">View All</a>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-outline-dark btn-icon me-2" id="userIcon" data-bs-toggle="modal"
+                        data-bs-target="#loginModal">
+                        <i class="far fa-user"></i>
+                    </a>
+                    <div class="dropdown">
+                        <a href="#" class="btn btn-outline-dark btn-icon position-relative" id="cartDropdown"
+                            data-bs-toggle="dropdown">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                id="cartCount">0</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end p-3 cart-dropdown">
+                            <h6 class="dropdown-header">Your Cart</h6>
+                            <div class="cart-items">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Subtotal:</span>
+                                <span class="fw-bold" id="cartSubtotal">$0.00</span>
+                            </div>
+                            <a href="cart.html" class="btn btn-primary w-100 mb-2">View Cart</a>
+                            <a href="checkout.html" class="btn btn-outline-secondary w-100">Checkout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Main Content -->
+    <main class="cart-page py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card mb-4">
+                        <div class="card-header bg-white">
+                            <h2 class="mb-0">Your Shopping Cart</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table cart-table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Product</th>
+                                            <th scope="col">Price</th>
+                                            <th scope="col">Quantity</th>
+                                            <th scope="col">Total</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="cartItemsTable">
+                                        <!-- Cart items will be populated here -->
+                                        <tr class="cart-empty-row">
+                                            <td colspan="5" class="text-center py-5">
+                                                <i class="fas fa-shopping-cart fa-3x mb-3 text-muted"></i>
+                                                <h4 class="text-muted">Your cart is empty</h4>
+                                                <a href="index.html" class="btn btn-primary mt-3">Continue Shopping</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header bg-white">
+                            <h3 class="mb-0">Coupon Code</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Enter your coupon code if you have one.</p>
+                            <form class="coupon-form">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Coupon code">
+                                    <button class="btn btn-primary" type="submit">Apply Coupon</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card cart-summary">
+                        <div class="card-header bg-white">
+                            <h3 class="mb-0">Cart Summary</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Subtotal:</span>
+                                <span id="cartSummarySubtotal">$0.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Shipping:</span>
+                                <span id="cartSummaryShipping">$0.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Discount:</span>
+                                <span id="cartSummaryDiscount">$0.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3">
+                                <span>Tax:</span>
+                                <span id="cartSummaryTax">$0.00</span>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between mb-4">
+                                <h4>Total:</h4>
+                                <h4 id="cartSummaryTotal">$0.00</h4>
+                            </div>
+                            <a href="checkout.html" class="btn btn-primary w-100" id="checkoutBtn">Proceed to
+                                Checkout</a>
+                            <a href="index.html" class="btn btn-outline-secondary w-100 mt-2">Continue Shopping</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-uppercase mb-4">Shoepik</h5>
+                    <p>Premium footwear for every step of your journey. We combine quality craftsmanship with innovative
+                        design to deliver shoes that look as good as they feel.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h5>Shop</h5>
+                        <ul>
+                            <li><a href="#">Men's Shoes</a></li>
+                            <li><a href="#">Women's Shoes</a></li>
+                            <li><a href="#">Kids' Shoes</a></li>
+                            <li><a href="#">New Arrivals</a></li>
+                            <li><a href="#">Best Sellers</a></li>
+                            <li><a href="#">Sale</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h5>Help</h5>
+                        <ul>
+                            <li><a href="#">Customer Service</a></li>
+                            <li><a href="#">Track Order</a></li>
+                            <li><a href="#">Returns & Exchanges</a></li>
+                            <li><a href="#">Shipping Info</a></li>
+                            <li><a href="#">Size Guide</a></li>
+                            <li><a href="#">FAQs</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h5>Company</h5>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Our Story</a></li>
+                            <li><a href="#">Sustainability</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h5>Legal</h5>
+                        <ul>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                            <li><a href="#">Accessibility</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2025 Shoepik. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="payment-methods">
+                        <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Visa">
+                        <img src="https://cdn-icons-png.flaticon.com/512/196/196561.png" alt="Mastercard">
+                        <img src="https://cdn-icons-png.flaticon.com/512/196/196566.png" alt="American Express">
+                        <img src="https://cdn-icons-png.flaticon.com/512/825/825454.png" alt="PayPal">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Login to Your Account</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="loginEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Remember me</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                    </form>
+                    <div class="text-center mt-3">
+                        <p>Don't have an account? <a href="#" class="text-primary" data-bs-toggle="modal"
+                                data-bs-target="#signupModal" data-bs-dismiss="modal">Sign up</a></p>
+                        <p><a href="#" class="text-primary">Forgot password?</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create Your Account</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="signupForm">
+                        <div class="mb-3">
+                            <label for="signupName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="signupName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="signupEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="signupPassword" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupConfirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="signupConfirmPassword" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="agreeTerms" required>
+                            <label class="form-check-label" for="agreeTerms">I agree to the <a href="#">Terms of
+                                    Service</a> and <a href="#">Privacy Policy</a></label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Create Account</button>
+                    </form>
+                    <div class="text-center mt-3">
+                        <p>Already have an account? <a href="#" class="text-primary" data-bs-toggle="modal"
+                                data-bs-target="#loginModal" data-bs-dismiss="modal">Login</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div class="modal fade" id="quickViewModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="quickViewTitle">Product Quick View</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="product-gallery">
+                                <div class="main-image mb-3">
+                                    <img src="" alt="Product" class="img-fluid" id="quickViewMainImage">
+                                </div>
+                                <div class="thumbnail-images d-flex gap-2">
+                                    <!-- Thumbnails will be added by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="product-details">
+                                <h3 id="quickViewProductName">Product Name</h3>
+                                <div class="rating mb-3" id="quickViewRating">
+                                    <!-- Stars will be added by JavaScript -->
+                                </div>
+                                <div class="price mb-3">
+                                    <span class="current-price" id="quickViewPrice">$0.00</span>
+                                    <span class="old-price" id="quickViewOldPrice"></span>
+                                    <span class="badge badge-discount" id="quickViewDiscount"></span>
+                                </div>
+                                <p class="text-muted mb-4" id="quickViewDescription">Product description will appear
+                                    here.</p>
+
+                                <div class="size-selector mb-4">
+                                    <label class="form-label">Size</label>
+                                    <div class="d-flex flex-wrap gap-2" id="sizeOptions">
+                                        <!-- Size options will be added by JavaScript -->
+                                    </div>
+                                </div>
+
+                                <div class="color-selector mb-4">
+                                    <label class="form-label">Color</label>
+                                    <div class="d-flex flex-wrap gap-2" id="colorOptions">
+                                        <!-- Color options will be added by JavaScript -->
+                                    </div>
+                                </div>
+
+                                <div class="quantity-selector mb-4">
+                                    <label class="form-label">Quantity</label>
+                                    <div class="input-group" style="max-width: 150px;">
+                                        <!-- <button class="btn btn-outline-secondary" type="button"
+                                            id="decrementQty">-</button> -->
+                                        <input type="number" class="form-control text-center" value="1" min="1"
+                                            id="productQty">
+                                        <!-- <button class="btn btn-outline-secondary" type="button"
+                                            id="incrementQty">+</button> -->
+                                    </div>
+                                </div>
+
+                                <div class="d-flex gap-3">
+                                    <button class="btn btn-primary flex-grow-1" id="addToCartQuickView">Add to
+                                        Cart</button>
+                                    <button class="btn btn-outline-secondary" id="addToWishlistQuickView"><i
+                                            class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Main JS -->
+    <script src="js/script.js"></script>
+    <!-- Cart JS -->
+    <script src="js/cart.js"></script>
+</body>
+
+</html>
